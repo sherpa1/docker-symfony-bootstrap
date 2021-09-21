@@ -1,0 +1,42 @@
+version: "3.9"
+networks:
+  symfony:
+    driver: bridge
+
+services:
+  php-fpm:
+    container_name: symfony_php-fpm
+    networks:
+      - symfony
+    build: ./
+    #command: symfony server:start --dir=projet
+    #La commande ci-dessus doit être décomentée lorsque le projet Symfony a été généré. Remplacer "projet" par le nom du dossier créé correspondant au nom du projet
+    ports:
+      - 5000:8000
+    volumes:
+      - ./:/var/www/html
+      - ./Docker:
+      - ./docker-compose.yml:
+
+  mysql:
+    networks:
+      - symfony
+    container_name: symfony_mysql
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: unless-stopped
+    env_file:
+      - ./.env
+
+  phpmyadmin:
+    networks:
+      - symfony
+    container_name: symfony_pma
+    depends_on:
+      - mysql
+    image: phpmyadmin/phpmyadmin
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    env_file:
+      - ./.env
