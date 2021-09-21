@@ -32,6 +32,8 @@ git config --global user.name "johndoe"
 symfony new nom-du-projet --full
 ```
 
+Pour sortir du bash du container Docker : `exit`.
+
 Cette commande (à adapter) va créer un projet Symfony à la racine du répertoire "/var/www/html" du container "symfony_php-fpm" répliqué à la racine du répertoire local courant.
 
 Les modifications effectuées dans les fichiers locaux sont répliqués dans le container.
