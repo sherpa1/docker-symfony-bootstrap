@@ -43,6 +43,22 @@ Cette commande (à adapter) va créer un projet Symfony à la racine du réperto
 
 Les modifications effectuées dans les fichiers locaux sont répliqués dans le container.
 
+### Création de la base de données
+
+- Entrer dans le bash du container symfony_php-fpm :
+
+`docker exec -ti symfony_php-fpm bash`
+
+- se placer à la racine du projet
+
+```
+cd projet
+```
+
+```
+bin/console make:docker:database
+```
+
 ### Adaptations après génération d'un nouveau projet Symfony
 
 Le nom du répertoire (ici "projet") doit également être utilisé dans la commande du service "symfony_php-fpm" du fichier "docker-compose.yml" afin de démarrer le serveur et pointer vers ce répertoire.
