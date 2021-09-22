@@ -59,6 +59,8 @@ cd projet
 bin/console make:docker:database
 ```
 
+https://symfonycasts.com/screencast/symfony-doctrine/docker-database
+
 ### Adaptations après génération d'un nouveau projet Symfony
 
 Le nom du répertoire (ici "projet") doit également être utilisé dans la commande du service "symfony_php-fpm" du fichier "docker-compose.yml" afin de démarrer le serveur et pointer vers ce répertoire.
