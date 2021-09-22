@@ -4,7 +4,7 @@
 
 `docker compose up`
 
-A la première exécution : création de l'image à partir du fichier Dockerfile et téléchargement des images utilisées par le projet (soit, MySQL, PhpMyAdmin, PHP 7.4 FPM Alpine).
+A la première exécution : création de l'image à partir du fichier Dockerfile et téléchargement des images utilisées par le projet (soit, MariaDB, PhpMyAdmin, PHP 7.4 FPM Alpine).
 
 ## Lancement des services Docker
 
@@ -47,10 +47,10 @@ Les modifications effectuées dans les fichiers locaux sont répliqués dans le 
 
 Le nom du répertoire (ici "projet") doit également être utilisé dans la commande du service "symfony_php-fpm" du fichier "docker-compose.yml" afin de démarrer le serveur et pointer vers ce répertoire.
 
-Il faut modifier le fichier .env du projet Symfony afin de communiquer avec la base de données MySQL du service "symfony_mysql" (ici, /projet/.env).
+Il faut modifier le fichier .env du projet Symfony afin de communiquer avec la base de données MariaDB du service "symfony_mysql" (ici, /projet/.env).
 
 ```
-DATABASE_URL="mysql://root:root@mysql:3306/test?serverVersion=5.7"
+DATABASE_URL="mysql://root:root@mariadb:3306/test?serverVersion=5.7"
 ```
 
 Dans cet exemple "root" est le nom de l'utilisateur root et "test" est son mot de passe. Ces valeurs sont à adapter.
@@ -94,7 +94,7 @@ command: symfony server:start --dir=<nom-du-répertoire-du-projet>
 
 - Le fichier docker-compose.yml permet de faire collaborer les 3 services suivants :
 
-  - base de données MySQL
+  - base de données MariaDB
   - serveur PHP-FPM
   - PhpMyAdmin
 

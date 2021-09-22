@@ -18,11 +18,11 @@ services:
       # - ./Dockerfile
       # - ./docker-compose.yml
 
-  mysql:
+  mariadb:
     networks:
       - symfony
-    container_name: symfony_mysql
-    image: mysql
+    container_name: symfony_mariadb
+    image: mariadb
     command: --default-authentication-plugin=mysql_native_password
     restart: unless-stopped
     env_file:
@@ -33,7 +33,7 @@ services:
       - symfony
     container_name: symfony_pma
     depends_on:
-      - mysql
+      - mariadb
     image: phpmyadmin/phpmyadmin
     restart: unless-stopped
     ports:
