@@ -9,8 +9,8 @@ services:
     networks:
       - symfony
     build: ./
-    #command: symfony server:start --dir=projet
-    #La commande ci-dessus doit être décomentée lorsque le projet Symfony a été généré. Remplacer "projet" par le nom du dossier créé correspondant au nom du projet
+    command: symfony server:start --dir=projet
+    #La commande ci-dessus doit être décommentée lorsque le projet Symfony a été généré. Remplacer "projet" par le nom du dossier créé correspondant au nom du projet
     ports:
       - 5000:8000
     volumes:

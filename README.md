@@ -16,7 +16,7 @@ A la première exécution : création de l'image à partir du fichier Dockerfile
 
 ## Génération d'un nouveau projet Symfony à l'intérieur du container symfony_php-fpm
 
-Si aucun projet Symfony n'est encore présent. Il est nécessaire d'en générer un à l'aide du CLI de Symfony. Ensuite, lorsque le projet a été généré, il est possible d'adapter le fichier docker-compose.yml pour que le service "symfony_php-fpm" démarre directement sur ce projet.
+Si aucun projet Symfony n'est encore présent dans le dossier racine. Il est nécessaire d'en générer un à l'aide du CLI de Symfony. Ensuite, lorsque le projet a été généré, il est possible d'adapter le fichier docker-compose.yml pour que le service "symfony_php-fpm" démarre directement sur ce projet.
 
 ### Génération d'un nouveau projet Symfony
 
@@ -30,6 +30,11 @@ Si aucun projet Symfony n'est encore présent. Il est nécessaire d'en générer
 git config --global user.email "john@doe.com"
 git config --global user.name "johndoe"
 symfony new nom-du-projet --full
+```
+
+```
+symfony new <nom-du-projet> --full
+
 ```
 
 Pour sortir du bash du container Docker : `exit`.
@@ -52,7 +57,17 @@ Dans cet exemple "root" est le nom de l'utilisateur root et "test" est son mot d
 
 ### Adaptation du fichier docker-compose.yml
 
-Lorsque le projet Symfony a été créé et que son fichier .env a été adapté
+Lorsque le projet Symfony a été créé et que son fichier .env a été adapté, il faut décommenter la commande docker permettant de démarrer le serveur PHP :
+
+```
+command: symfony server:start --dir=projet
+```
+
+Si besoin, adapter le nom du dossier "projet" selon le nom réel du projet.
+
+```
+command: symfony server:start --dir=<nom-du-répertoire-du-projet>
+```
 
 ## Exécution de commandes de Symfony CLI
 
