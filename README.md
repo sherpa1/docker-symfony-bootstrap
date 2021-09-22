@@ -67,6 +67,10 @@ Lorsque le projet Symfony a été créé et que son fichier .env a été adapté
 - `php bin/console doctrine:migrations:migrate`
 - ...
 
+### Exécution d'une commande dans le container sans entrer dans le bash du container
+
+`docker run <nom-du-container> bin/console make:entity`
+
 ## Architecture
 
 - Le projet Symfony se situe dans le dossier projet

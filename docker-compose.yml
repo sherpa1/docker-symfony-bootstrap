@@ -15,8 +15,8 @@ services:
       - 5000:8000
     volumes:
       - ./:/var/www/html
-      - ./Docker:
-      - ./docker-compose.yml:
+      - ./Dockerfile
+      - ./docker-compose.yml
 
   mysql:
     networks:
